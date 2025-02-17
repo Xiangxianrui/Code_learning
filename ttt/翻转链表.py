@@ -30,7 +30,7 @@ def solution(LinkList:MyLinkedList)->MyLinkedList:
         node=node.pre
     return LinkList
 #第三种方法，双节点法
- class ListNode:
+class ListNode:
      def __init__(self, val=0, next=None):
          self.val = val
          self.next = next
