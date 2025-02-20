@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdio.h>
+#include <string.h>
 
 int main() {
     // %d 打印整型
@@ -31,6 +31,9 @@ int main() {
     printf("\a");//让你的电脑响一声
     printf("%c\n",'\130');//把 130（八进制）转化成十进制，然后以这个十进制数作为 ASCII 码打印出字符
     printf("%c\n",'\x60');
+    printf("%lu\n", strlen("c:\test\628\test.c")); // 转义字符转化后算一个字符------有一些转义符有其他效果，不管他们的效果，当做一个字符
+    
+    */
 
     return 0;
 }

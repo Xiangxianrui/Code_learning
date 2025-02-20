@@ -9,6 +9,7 @@ int main() {
     int len = strlen("aiugi");  // 计算字符串 "aiugi" 的长度    strlen 是一个库函数，需要引用头文件，<string.h>
     printf("%d\n", len);  // 输出字符串的长度
     printf("%zu\n",strlen(arr1));
+    
 
     return 0;
 }
