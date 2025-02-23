@@ -33,7 +33,7 @@ int main() {
     printf("%c\n",'\x60');
     printf("%lu\n", strlen("c:\test\628\test.c")); // 转义字符转化后算一个字符------有一些转义符有其他效果，不管他们的效果，当做一个字符
     
-    */
+    
 
     return 0;
 }
