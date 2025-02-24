@@ -1,27 +1,3 @@
-
-# #双指针法
-# class Solution:
-#     def threeSum(self, nums: List[int]) -> List[List[int]]:
-#         nums.sort()
-#         n = len(nums)
-#         res=[]
-#         i=0
-#         for i in range(n):
-#             if nums[i]>0:#整个列表示排序过的，所以是一个递增数列，如果第一个数就大于 0，那后面的数的和也必然大于 0
-#                 break
-#             if i>0 and nums[i]==nums[i-1]:#如果是 0 的话，直接访问前一个数的时候就会超出列表范围
-#                 continue
-#                 left=i+1
-#                 right=n-1
-#                 while left<right:
-#                     if nums[i]+nums[left]+nums[right]>0:
-#                         right-=1
-#                     elif nums[i]+nums[left]+nums[right]<0:
-#                         left+=1
-#                     else:
-#                         res.append([[nums[i]],nums[left],nums[right]])    
-#         return res    
-
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()  # 排序数组
@@ -84,4 +60,41 @@ class Solution:
                 # 将当前元素 nums[j] 添加到哈希表中
                 seen[nums[j]] = True
         
-        return res                    
+        return res 
+
+
+class Solution:
+    def threeSum(self,nums):
+        nums.sort()
+        n=len(nums)
+        res=[]
+        for i in range(n-2):
+            left = i+1#第一个数
+            right = n-1#最后一个数
+
+            if nums[i] > 0:
+                break
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
+            while left < right:
+                Sum = nums[i] + nums[left] + nums[right]
+                if Sum > 0:
+                    right -=1
+                elif Sum <0:
+                    left +=1
+                else:
+                    res.append([nums[i],nums[left],nums[right]])
+
+            #去除重复元素
+                    while left < right and nums[left] == nums[left+1]:#左边出现了重复数
+                        left+=1#一直往右移，直到最后一个重复数字
+                    while left < right and nums[right] == nums[right-1]:
+                        right-=1
+                    left += 1
+                    right -= 1
+
+                
+                
+
+        return res
+                
