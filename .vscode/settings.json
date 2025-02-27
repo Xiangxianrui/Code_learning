@@ -1,6 +1,40 @@
 {
-    "search.useParentIgnoreFiles": false,
+    "C_Cpp.default.cppStandard": "c17",
+    "C_Cpp.default.cStandard": "c17",
+    "C_Cpp.default.compilerPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin",
+    "C_Cpp.default.intelliSenseMode": "macos-clang-arm64",
+    "C_Cpp.autocomplete": "enabled", // 保留基本的补全提示
+    "C_Cpp.errorSquiggles": "Enabled",
+    "editor.formatOnSave": true,
+    "C_Cpp.formatting": "clangFormat",
+    "clang.format.style": "file",
+    "files.associations": {
+        "*.h": "c"
+    },
+    "editor.renderWhitespace": "all",
+    "editor.tabSize": 4,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.runInTerminal": true,
+    "C_Cpp.default.includePath": [
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
+    ],
+    "search.collapseResults": "auto",
+    "search.useGlobalIgnoreFiles": true,
     "editor.quickSuggestions": {
-        "other": "off"
-    }
+        "other": "off", // 禁止对其他内容（如字符串、注释）的补全
+        "comments": "off",
+        "strings": "off"
+    },
+    "editor.parameterHints.enabled": false, // 禁用函数参数提示
+    "editor.suggestOnTriggerCharacters": false, // 禁用触发字符（如点号）时自动显示补全
+    "editor.acceptSuggestionOnEnter": "off", // 按 Enter 键时不自动接受补全
+    "editor.suggest.snippetsPreventQuickSuggestions": true, // 禁止片段触发补全
+    "editor.quickSuggestionsDelay": 0,
+    "editor.suggest.showWords": true, // 显示关键字、变量名等
+    "editor.suggest.showFunctions": true, // 显示函数名等
+    "editor.suggest.showSnippets": false // 禁用代码片段提示
 }
