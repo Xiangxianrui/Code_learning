@@ -14,4 +14,8 @@
 
 # 数据范围：1 <= s.length < 10000。
 
+s = input()# str类型
+def replace_num(s):
+    print(''.join(['number' if ch.isdigit() else ch for ch in s]))
+#直接列表生成式把字符串里面的内容变成一个满足要求的列表。    ‘x’.join(),把一个可迭代对象内的迭代值用 x 连接成一个字符串，返回值也是字符串
 
