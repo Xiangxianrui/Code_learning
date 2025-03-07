@@ -10,15 +10,15 @@ void Swap(int *px, int *py)
 
 int main()
 {
-    int a = 0;
-    int b = 0;
+    // int a = 0;
+    // int b = 0;
 
-    printf("请输入两个整数: ");
-    scanf("%d%d", &a, &b);
+    // printf("请输入两个整数: ");
+    // scanf("%d%d", &a, &b);
 
-    printf("交换前: a = %d, b = %d\n", a, b);
-    Swap(&a, &b);
-    printf("交换后: a = %d, b = %d\n", a, b);
+    // printf("交换前: a = %d, b = %d\n", a, b);
+    // Swap(&a, &b);
+    // printf("交换后: a = %d, b = %d\n", a, b);
 
     return 0;
 }
