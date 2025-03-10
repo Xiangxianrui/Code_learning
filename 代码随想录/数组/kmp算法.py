@@ -1,11 +1,11 @@
 def compute_next(p):
     """计算模式串 p 的 next 数组"""
     m = len(p)
-    next_arr = [0] * m
-    j = 0  # 记录前后缀匹配长度
+    next_arr = [0 for i in range(m)] #初始化匹配表      next_arr[i]表示的是这个数组从 0 到 i 位的最长匹配前后缀数组
+    j = 0  # 记录前后缀匹配长度//////初始化为 0
     
     for i in range(1, m):
-        while j > 0 and p[i] != p[j]:
+        while j > 0 and p[i] != p[j]:# j > 0 避免回溯超出range，
             j = next_arr[j - 1]  # 回退到前一个相同前后缀长度
         
         if p[i] == p[j]:  
@@ -38,3 +38,13 @@ def kmp_search(s, p):
             return i - m + 1  # 返回匹配的起始位置
     
     return -1  # 未匹配
+
+
+#计算思路---->在做 字符匹配（给两个字符，判断短的字符串是否在于唱的字符串中，如果存在则返回第一次重合的地方，如果不存在则返回-1）
+"""
+
+
+"""
+
+
+

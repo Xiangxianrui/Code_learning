@@ -7,4 +7,10 @@ int main()
     //     goto again;
     //     return 0;
     // 关机程序
+    int i = 0;
+    for (i = 1; i <= 100; i++)
+    {
+        if (i % 2 == 1)
+            printf("%d\n", i);
+    }
 }

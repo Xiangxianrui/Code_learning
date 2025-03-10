@@ -5,12 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "gcc - 生成和调试活动文件",
             "type": "lldb",
             "request": "launch",
-            "name": "Debug",
-            "program": "${workspaceFolder}/${fileBasenameNoExtension}",
+            "program": "${fileDirname}/${fileBasenameNoExtension}", // 重点
             "args": [],
-            "cwd": "${workspaceFolder}"
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: gcc 生成活动文件"
         }
     ]
 }
