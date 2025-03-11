@@ -38,23 +38,23 @@
 #             return i - m + 1  # 返回匹配的起始位置
     
 #     return -1  # 未匹配
-
-
 # #计算思路---->在做 字符匹配（给两个字符，判断短的字符串是否在于唱的字符串中，如果存在则返回第一次重合的地方，如果不存在则返回-1）
-# """
 
-
-# """
 
 def get_next(p):
     next = [0] * len(p)
     next[0] = -1  # 第一个字符没有前缀，固定为-1
     prefix_len = 0  # 当前最长匹配的前缀长度
     i = 1          # 从第二个字符开始计算
-
+#p = "ABABACABABA"
     while i < len(p):
+        new_char = p[:i+1]
+        char1 = p[i]
+        char2 = p[prefix_len]
+    
         if p[i] == p[prefix_len]:
-            # 如果当前字符匹配，前缀长度+1
+            
+            # 用i 来便利
             prefix_len += 1
             next[i] = prefix_len
             i += 1
@@ -67,3 +67,6 @@ def get_next(p):
                 prefix_len = next[prefix_len - 1]  # 关键回退！
     return next
 
+p = "ABABACABABA"
+next = get_next(p)
+print(next)
