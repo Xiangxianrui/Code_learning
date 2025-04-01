@@ -22,7 +22,7 @@ int main()
         scanf("%d", &arr2[i]);
     }
 
-        int j = 0; // arr1 的指针
+    int j = 0; // arr1 的指针
     int k = 0; // arr2 的指针
     int t = 0;
     while ((j < n) && (k < m))
