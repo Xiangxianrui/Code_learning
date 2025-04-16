@@ -29,5 +29,9 @@ int main()
     // // erpress1 ? express2: erpress3
     // printf("%c\n", (strlen("abc") - strlen("abcd")) ? ('>') : ('<'));
 
+    int a = 3;
+    char *pa = (char *)&a;
+    printf("%p\n", *pa);
+
     return 0;
 }
