@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-int Add(int x, int y)
-{
-    return x + y;
-}
+// int Add(int x, int y)
+// {
+//     return x + y;
+// }
 int main()
 {
     // // int arr[10] = {1, 2, 3, 4};
@@ -32,20 +32,22 @@ int main()
     // int a = 3;
     // char *pa = (char *)&a;
     // printf("%p\n", *pa);
-    int n = 0;
-    scanf("%d", &n);
-    for (int i = 0; i < n; i++)
-    { // 外层循环控制输出次数
-        for (int j = 0; j < n - 1 - i; j++)
-        {
-            printf("**"); // 打印两个空格，使形状更好看
-        }
-        // for (int n = 0; n < i - j; n++)
-        // { // 先打印空格，
-        //     printf("* ");
-        // }
-        printf("\n");
-    }
+    // int n = 0;
+    // scanf("%d", &n);
+    // for (int i = 0; i < n; i++)
+    // { // 外层循环控制输出次数
+    //     for (int j = 0; j < n - 1 - i; j++)
+    //     {
+    //         printf("**"); // 打印两个空格，使形状更好看
+    //     }
+    //     // for (int n = 0; n < i - j; n++)
+    //     // { // 先打印空格，
+    //     //     printf("* ");
+    //     // }
+    //     printf("\n");
+    // }
+    int a = 100;
+    int *pa = &a;
 
     return 0;
 }
