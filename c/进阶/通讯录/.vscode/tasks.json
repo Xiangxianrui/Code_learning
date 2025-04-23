@@ -1,29 +1,26 @@
 {
-    "tasks": [
+    "version": "0.2.0",
+    "configurations": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: clang 生成活动文件",
-            "command": "/usr/bin/clang",
-            "args": [
-                "-fcolor-diagnostics",
-                "-fansi-escape-codes",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "detail": "调试器生成的任务。"
+            "name": "Build and Run",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/contact_manager",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true, // Or false, depending on your preference
+            "MIMode": "gdb", // Or "lldb" on macOS
+            "miDebuggerPath": "/usr/bin/gdb", // Or the path to your debugger
+            "preLaunchTask": "gcc: build" // Run the build task before launching
         }
     ],
-    "version": "2.0.0"
+    "compounds": [
+        {
+            "name": "Build and Run",
+            "configurations": [
+                "Build and Run"
+            ]
+        }
+    ]
 }

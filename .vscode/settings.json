@@ -9,7 +9,11 @@
     "C_Cpp.formatting": "clangFormat",
     "clang.format.style": "file",
     "files.associations": {
-        "*.h": "c"
+        "*.h": "c",
+        "array": "c",
+        "string": "c",
+        "string_view": "c",
+        "vector": "c"
     },
     "editor.renderWhitespace": "all",
     "editor.tabSize": 4,
