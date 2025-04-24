@@ -11,6 +11,14 @@ void menu()
     printf("*****************************************\n");
 }
 
+enmu Option{
+    EXIT,
+    ADD,
+    DEL,
+    SEARCH,
+    MODIFY,
+    SHOW,
+    SORT};
 int main()
 {
     int input = 0;
@@ -28,27 +36,27 @@ int main()
 
         switch (input)
         {
-        case 1:
+        case ADD:
             // 添加联系人
             AddContract(&con);
             break;
-        case 2:
+        case DEL:
             // 删除联系人
             DelContract(&con);
             break;
-        case 3:
+        case SEARCH:
             // 查找联系人
             SearchContract(&con);
             break;
-        case 4:
+        case MODIFY:
             // 修改联系人
             ModifyContract(&con);
             break;
-        case 5:
+        case SHOW:
             // 显示所有联系人
             ShowContract(&con);
             break;
-        case 6:
+        case SORT:
             // 排序联系人
             // printf("排序功能待实现\n");
             SortContract(&con);

@@ -4,6 +4,16 @@
 #include <assert.h>
 #include <stdlib.h> // Include stdlib.h for exit
 
+// enmu Option{
+//     EXIT,
+//     ADD,
+//     DEL,
+//     SEARCH,
+//     MODIFY,
+//     SHOW,
+//     SORT
+// };
+
 void InitContract(Contract *pc)
 {
     pc->count = 0;

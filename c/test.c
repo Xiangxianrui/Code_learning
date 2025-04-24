@@ -46,8 +46,11 @@ int main()
     //     // }
     //     printf("\n");
     // }
-    int a = 100;
-    int *pa = &a;
+    // int a = 100;
+    // int *pa = &a;
+
+    char test[10] = {'a', 'b', 'c'};
+    printf("%s", test);
 
     return 0;
 }
