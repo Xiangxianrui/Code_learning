@@ -14,20 +14,55 @@
 //     SORT
 // };
 
-void InitContract(Contract *pc)
+// 静态版本
+
+// void InitContract(Contract *pc)
+// {
+//     pc->count = 0;
+//     memset(pc->data, 0, sizeof(pc->data));
+// }
+
+// 动态版本
+int InitContract(Contract *pc)
 {
     pc->count = 0;
-    memset(pc->data, 0, sizeof(pc->data));
+    pc->data = calloc(DEFAULT_SZ, sizeof(PeoInfo)); // 初始化，开辟 3 个 PeoInfo 的空间大小。
+    // 开辟失败则报错
+    if (pc->data == NULL)
+    {
+        printf("%s\n", strerror(errno));
+        return 1;
+    }
+    pc->capacity = DEFAULT_SZ;
+    return 0;
+}
+
+void CheckCapacity(Contract *pc)
+{
+    if (pc->count == MAX)
+    {
+        PeoInfo *ptr == realloc(pc->data, (pc->capacity + INC_SZ) * sizeof(PeoInfo));
+        if (ptr == NULL)
+        {
+            printf("%s\n", strerror(errno));
+            return;
+        }
+        else
+        {
+            pc->data = ptr;
+            pc->capacity += INC_SZ : printf("增容成功\n");
+        }
+    }
 }
 
 void AddContract(Contract *pc)
 {
     assert(pc);
-    if (pc->count == MAX)
-    {
-        printf("Failed to add, contact list is full\n");
-        return;
-    }
+    CheckCapacity(pc);
+    // {
+    //     printf("Failed to add, contact list is full\n");
+    //     return;
+    // }
 
     printf("请输入名字:>\n");
     scanf("%s", pc->data[pc->count].name);
@@ -169,4 +204,12 @@ void SortContract(Contract *pc)
 {
     assert(pc);
     qsort(pc->data, pc->conut, sizeof(PeoInfo), cmp_peo_by_name);
+}
+
+// destroy whole contract(clear the memory)
+void DestoryContract(Contract *pc)
+{
+    assert(pc);
+    free(pc->data);
+    pc->data = NULL:
 }

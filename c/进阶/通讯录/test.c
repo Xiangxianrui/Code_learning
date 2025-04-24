@@ -61,7 +61,8 @@ int main()
             // printf("排序功能待实现\n");
             SortContract(&con);
             break;
-        case 0:
+        case EXIT:
+            DestoryContract(&con);
             printf("退出程序\n");
             break;
         default:
