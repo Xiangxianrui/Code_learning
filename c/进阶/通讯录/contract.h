@@ -37,12 +37,14 @@ void CheckCapacity(Contract *pc); // 添加 CheckCapacity 的原型声明
 void AddContract(Contract *pc);
 void ShowContract(const Contract *pc);
 void DelContract(Contract *pc);
-void SearchContract(Contract *pc);
+void SearchContract(const Contract *pc);
 void ModifyContract(Contract *pc);
 void SortContract(Contract *pc);
 // 推荐将 DestoryContract 的拼写改为 DestroyContract
-void DestoryContract(Contract *pc); // 销毁通讯录 (释放内存)
-void SaveContract(Contract *pc);    // 保存通讯录到文件
+void DestroyContract(Contract *pc);    // 销毁通讯录 (释放内存)
+void SaveContract(const Contract *pc); // 保存通讯录到文件
 // 可以考虑添加: void LoadContract(Contract* pc); // 从文件加载通讯录
+
+void LoadContract(Contract *pc);
 
 #endif // CONTRACT_H

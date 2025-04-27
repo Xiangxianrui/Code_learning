@@ -7,24 +7,6 @@
 #include <stdlib.h>
 #include <errno.h> // 确保包含 errno.h
 
-// 动态版本初始化
-int InitContract(Contract *pc)
-{
-    assert(pc); // 断言确保 pc 不是 NULL 指针
-    pc->count = 0;
-    // 使用 calloc 初始化，分配 DEFAULT_SZ 个 PeoInfo 大小的空间，并清零
-    pc->data = (PeoInfo *)calloc(DEFAULT_SZ, sizeof(PeoInfo));
-    if (pc->data == NULL)
-    {
-        // 如果内存分配失败，打印错误信息
-        perror("InitContract::calloc 失败"); // perror 会根据 errno 输出具体的错误信息
-        return 1;                            // 返回 1 表示初始化失败
-    }
-    pc->capacity = DEFAULT_SZ; // 设置初始容量
-    printf("通讯录初始化成功，初始容量: %d\n", pc->capacity);
-    return 0; // 返回 0 表示初始化成功
-}
-
 // 检查容量，如果需要则扩容
 void CheckCapacity(Contract *pc)
 {
@@ -51,6 +33,49 @@ void CheckCapacity(Contract *pc)
         }
     }
     // 如果 count < capacity，则不需要做任何事
+}
+// 加载通讯录
+
+void LoadContract(Contract *pc)
+{
+    FILE *pfRead = fopen("contract.c", "rb");
+    if (pfRead == NULL)
+    {
+        perror("fopen");
+        return;
+    }
+    PeoInfo tmp = {0};
+    while (fread(&tmp, sizeof(PeoInfo), 1, pfRead) == 1)
+    {
+        CheckCapacity(pc); // 先保证空间，CheckCapacity 检查空间，空间不够的话就扩容
+
+        pc->data[pc->count] = tmp; // 每次都放到最后面，因为删除某个联系人的时候也是把每个联系人都往前移动
+        pc->count++;
+    }
+
+    fclose(pfRead);
+    pfRead = NULL;
+}
+
+// 动态版本初始化
+int InitContract(Contract *pc)
+{
+    assert(pc); // 断言确保 pc 不是 NULL 指针
+    pc->count = 0;
+    // 使用 calloc 初始化，分配 DEFAULT_SZ 个 PeoInfo 大小的空间，并清零
+    pc->data = (PeoInfo *)calloc(DEFAULT_SZ, sizeof(PeoInfo));
+    if (pc->data == NULL)
+    {
+        // 如果内存分配失败，打印错误信息
+        perror("InitContract::calloc 失败"); // perror 会根据 errno 输出具体的错误信息
+        return 1;                            // 返回 1 表示初始化失败
+    }
+    pc->capacity = DEFAULT_SZ; // 设置初始容量
+    // printf("通讯录初始化成功，初始容量: %d\n", pc->capacity);
+
+    LoadContract(pc);
+
+    return 0; // 返回 0 表示初始化成功
 }
 
 void AddContract(Contract *pc)
@@ -281,7 +306,7 @@ void SaveContract(const Contract *pc) // 如果函数不修改 pc，可以标记
                                   pfWrite);        // 文件指针
 
     // 检查是否所有元素都成功写入
-    if (written_count != pc->count)
+    if (written_count != (size_t)pc->count)
     {
         perror("SaveContract::fwrite 写入文件时发生错误");
         fprintf(stderr, "错误：应写入 %d 个联系人，实际只写入了 %zu 个。\n", pc->count, written_count);
